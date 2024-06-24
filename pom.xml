@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.0</version>
+		<version>3.3.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fateccampinas</groupId>
 	<artifactId>landpage</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0.0</version>
 	<name>Landpage</name>
 	<description>Landpage API</description>
 	<url/>
@@ -27,9 +27,17 @@
 		<url/>
 	</scm>
 	<properties>
+		<!-- JAVA VERSION -->
 		<java.version>17</java.version>
+
+		<!-- OTHER DEPENDENCIES VERSIONS -->
+		<java-jwt.version>3.3.0</java-jwt.version>
+
+		<!-- PLUGINS VERSIONS -->
+		<dependency-check-maven.version>9.2.0</dependency-check-maven.version>
 	</properties>
 	<dependencies>
+		<!-- STARTERS DEPENDENCIES -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -102,6 +110,13 @@
 			<artifactId>mysql</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- OTHER DEPENDENCIES -->
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>${java-jwt.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -118,6 +133,18 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>${dependency-check-maven.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			  </plugin>
 		</plugins>
 	</build>
 
