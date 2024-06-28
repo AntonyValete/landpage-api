@@ -1,6 +1,6 @@
 package br.com.fateccampinas.landpage.infra.security;
 
-import br.com.fateccampinas.landpage.repositories.UserRepository;
+import br.com.fateccampinas.landpage.repositories.UsersRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +20,7 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Autowired
     TokenService tokenService;
     @Autowired
-    UserRepository userRepository;
+    UsersRepository userRepository;
 
     @Override
     protected void doFilterInternal(

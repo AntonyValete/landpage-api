@@ -15,16 +15,15 @@ import br.com.fateccampinas.landpage.domain.user.LoginDTO;
 import br.com.fateccampinas.landpage.domain.user.SignUpDTO;
 import br.com.fateccampinas.landpage.domain.user.UsersEntity;
 import br.com.fateccampinas.landpage.infra.security.TokenService;
-import br.com.fateccampinas.landpage.repositories.UserRepository;
+import br.com.fateccampinas.landpage.repositories.UsersRepository;
 
 @Service
 public class AuthenticationService {
-
     @Autowired
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserRepository userRepository;
+    private UsersRepository usersRepository;
 
     @Autowired
     private TokenService tokenService;
@@ -45,11 +44,11 @@ public class AuthenticationService {
     }
 
     public ResponseEntity<String> signup(SignUpDTO userData) {
-        if (this.userRepository.existsById(userData.email())) {
+        if (this.usersRepository.existsById(userData.email())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already registered");
         }
         String encryptedPassword = this.passwordEncoder.encode(userData.password());
-        this.userRepository.save(new UsersEntity(userData.email(),
+        this.usersRepository.save(new UsersEntity(userData.email(),
                                                  userData.name(),
                                                  userData.phoneNumber(),
                                                  encryptedPassword,

@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "9a5c8598-4a88-49c4-8245-ffb87899408d",
+		"name": "landpage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33177142",
+		"_collection_link": "https://landpage.postman.co/workspace/93d31045-eb3d-431f-8249-a61fb6f113ed/collection/33177142-9a5c8598-4a88-49c4-8245-ffb87899408d?action=share&source=collection_link&creator=33177142"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "SignUp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"john.doe@example.com\",\r\n  \"name\": \"John Doe\",\r\n  \"role\": \"USER\",\r\n  \"password\": \"SecurePassword123!\",\r\n  \"phoneNumber\": \"12345678901\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/signup",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "mock01",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"john.doe@example.com\",\r\n  \"name\": \"John Doe\",\r\n  \"role\": \"USER\",\r\n  \"password\": \"SecurePassword123!\",\r\n  \"phoneNumber\": \"12345678901\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/signup",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "mock02",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"jane.doe@example.com\",\r\n  \"name\": \"Jane Doe\",\r\n  \"role\": \"ADMIN\",\r\n  \"password\": \"AnotherSecurePass!\",\r\n  \"phoneNumber\": \"10987654321\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/signup",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "mock03",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"alex.smith@example.com\",\r\n  \"name\": \"Alex Smith\",\r\n  \"role\": \"USER\",\r\n  \"password\": \"Password12345!\",\r\n  \"phoneNumber\": \"12312312345\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/signup",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "mock04",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"sarah.connor@example.com\",\r\n  \"name\": \"Sarah Connor\",\r\n  \"role\": \"USER\",\r\n  \"password\": \"Terminator2\",\r\n  \"phoneNumber\": \"98765432101\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/signup",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"signup"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();\r",
+											"pm.collectionVariables.set('JWT_TOKEN', response.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"SecurePassword123!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/login",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "mock01",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"SecurePassword123!\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "mock02",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"jane.doe@example.com\",\r\n  \"password\": \"AnotherSecurePass!\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "mock03",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"alex.smith@example.com\",\r\n  \"password\": \"Password12345!\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "mock04",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"email\": \"sarah.connor@example.com\",\r\n  \"password\": \"Terminator2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{API_URL}}/auth/login",
+											"host": [
+												"{{API_URL}}"
+											],
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "noauth"
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "GetAllNonAdminUsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/users/getAllNonAdminUsers",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"getAllNonAdminUsers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllUsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/users/getAllUsers",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"getAllUsers"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{JWT_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "JWT_TOKEN",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
