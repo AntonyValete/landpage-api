@@ -49,6 +49,11 @@ public class AuthenticationService {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already registered");
         }
         String encryptedPassword = this.passwordEncoder.encode(userData.password());
+        this.userRepository.save(new UsersEntity(userData.email(),
+                                                 userData.name(),
+                                                 userData.phoneNumber(),
+                                                 encryptedPassword,
+                                                 userData.role()));
         return ResponseEntity.ok().body("User registered successfully");
     }
 }
