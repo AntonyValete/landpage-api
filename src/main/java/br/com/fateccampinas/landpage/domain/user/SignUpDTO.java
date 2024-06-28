@@ -12,10 +12,6 @@ public record SignUpDTO(
     String email,
     
     @NotBlank
-    @Size(max = 20)
-    String username,
-    
-    @NotBlank
     @Size(max = 80)
     String name,
     

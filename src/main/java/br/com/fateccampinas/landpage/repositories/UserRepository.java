@@ -1,9 +1,11 @@
 package br.com.fateccampinas.landpage.repositories;
 
-import br.com.fateccampinas.landpage.domain.user.UserDAO;
+import br.com.fateccampinas.landpage.domain.user.UsersEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<UserDAO, String> {
+@Repository
+public interface UserRepository extends JpaRepository<UsersEntity, String> {
     UserDetails findByEmail(String email);
 }

@@ -4,8 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import br.com.fateccampinas.landpage.domain.user.UserDAO;
-import org.springframework.beans.factory.annotation.Value;
+import br.com.fateccampinas.landpage.domain.user.UsersEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -17,7 +16,7 @@ import java.time.ZoneId;
 public class TokenService {
     private final String secret = "test-secret-key";
 
-    public String generateToken(UserDAO user, boolean keepUserLoggedIn) 
+    public String generateToken(UsersEntity user, boolean keepUserLoggedIn) 
             throws IllegalArgumentException, UnsupportedEncodingException {
         try{
             Algorithm algorithm = Algorithm.HMAC256(secret);

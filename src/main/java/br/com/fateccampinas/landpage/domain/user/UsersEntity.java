@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "email")
-public class UserDAO implements UserDetails {
+public class UsersEntity implements UserDetails {
     @Id
     @Email
     private String email;
@@ -28,10 +28,9 @@ public class UserDAO implements UserDetails {
     
     private String phoneNumber;
     
-    private String username;
-    
     private String password;
     
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @Override
